@@ -25,7 +25,7 @@ COPY <<-"EOF" /usr/bin/chromium
 #!/bin/bash
 
 # Cleanup old lockfiles
-rm -f $HOME/.config/{chromium,BraveBrowser,gphotosdl/browser}/Singleton*
+rm -rf "${XDG_CONFIG_HOME}"/{BraveSoftware/Brave-Browser,gphotosdl/browser}/Singleton*
 
 exec /usr/bin/brave-browser \
     --no-sandbox \
