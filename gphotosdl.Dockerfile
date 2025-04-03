@@ -47,6 +47,8 @@ RUN chmod +x /usr/local/bin/gphotosdl /usr/bin/chromium && \
 USER gphotosdl
 WORKDIR $USER_DIR
 ENTRYPOINT [ "/usr/local/bin/gphotosdl" ]
+LABEL org.opencontainers.image.authors="ferferga" org.opencontainers.image.source="https://github.com/ferferga/dockerfiles"
 
 ## Files that need  to be mounted from the host:
 #    - /home/gphotosdl/.config/gphotosdl
+## We're not using volumes to discourage their use for this image since it doesn't belong to the use case
