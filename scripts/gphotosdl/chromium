@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Cleanup old lockfiles
+rm -rf "${XDG_CONFIG_HOME}"/{BraveSoftware/Brave-Browser,gphotosdl/browser}/Singleton*
+
+exec /usr/bin/brave-browser \
+  --no-sandbox \
+  --headless \
+  --disable-dev-shm-usage \
+  --disable-crash-reporter \
+  --no-crashpad \
+  --disable-blink-features \
+  --disable-blink-features=AutomationControlled \
+  --no-first-run \
+  "$@"

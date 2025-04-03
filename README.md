@@ -15,7 +15,7 @@ xhost +
 2. Run the container like this (where `./docker` is where the data is going to be stored):
 
 ```bash
-docker run --rm --network host -e DISPLAY=UNIX:0.0 -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket -v /tmp/.X11-unix:/tmp/.X11-unix -v ./docker:/home/gphotosdl/.config/gphotosdl --entrypoint /bin/bash -it --privileged --cap-add=SYS_ADMIN --name gphotosdl ghcr.io/ferferga/gphotosdl
+docker run --rm --network host -e DISPLAY=UNIX:0.0 -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket -v /tmp/.X11-unix:/tmp/.X11-unix -v ./docker:/home/gphotosdl/.config --entrypoint /bin/bash -it --privileged --cap-add=SYS_ADMIN --name gphotosdl ghcr.io/ferferga/gphotosdl
 ```
 
 3. In another terminal, enter the container as root:
@@ -28,7 +28,7 @@ docker exec --user 0:0 -it gphotosdl /bin/bash
 
 ```bash
 apt update && apt install -y xorg nano
-## Remove --headless and --disable-gpu from the arguments with:
+## Remove --headless from the arguments with:
 nano /usr/bin/chromium
 ```
 
@@ -38,4 +38,4 @@ or by calling `chromium`.
 Once troubleshooting is done, start all over (removing contents of `./docker` to ensure clear state)
 
 6. Close the browser after logging and you're done. You can move that profile
-wherever you need (making sure you mount it to `/home/gphotosdl/.config/gphotosdl` inside the container)
+wherever you need (making sure you mount it to `/home/gphotosdl/.config` inside the container)
