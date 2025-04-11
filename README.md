@@ -34,7 +34,7 @@ docker exec --user 0:0 -it gphotosdl /bin/bash
 5. Inside the container's shell as root:
 
 ```bash
-apt update && apt install -y xorg nano
+install_packages xorg nano
 ## Remove --headless from the arguments with:
 nano /usr/bin/chromium
 ```
