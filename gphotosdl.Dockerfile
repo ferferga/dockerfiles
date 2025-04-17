@@ -11,7 +11,7 @@ RUN ARCH=$([ "${TARGETARCH}" = "amd64" ] && echo "x86_64" || echo "${TARGETARCH}
 
 FROM ghcr.io/ferferga/debian:latest
 ARG USER_DIR=/home/gphotosdl
-ENV XDG_CONFIG_HOME=${USER_DIR}/.config XDG_CACHE_HOME=/tmp
+ENV XDG_CONFIG_HOME=${USER_DIR} XDG_CACHE_HOME=/tmp
 
 COPY --from=downloader /brave-keyring.gpg /usr/share/keyrings/brave-keyring.gpg
 RUN install_packages ca-certificates && \
@@ -36,5 +36,5 @@ ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/gphotosdl"]
 
 ## Files that need  to be mounted from the host:
-#    - /home/gphotosdl/.config
+#    - /home/gphotosdl/gphotosdl
 ## We're not using volumes to discourage their use for this image since it doesn't belong to the use case

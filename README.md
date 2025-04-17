@@ -24,7 +24,7 @@ chown 101:102 -R docker
 3. Run the container like this (where `./docker` is where the data is going to be stored):
 
 ```bash
-docker run --rm --network host -e DISPLAY=unix:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix -v ./docker:/home/gphotosdl/.config/gphotosdl --entrypoint /bin/bash -it --privileged --name gphotosdl ghcr.io/ferferga/gphotosdl
+docker run --rm --network host -e DISPLAY=unix:0.0 -v /tmp/.X11-unix:/tmp/.X11-unix -v ./docker:/home/gphotosdl/gphotosdl --entrypoint /bin/bash -it --privileged --name gphotosdl ghcr.io/ferferga/gphotosdl
 ```
 
 4. In another terminal, enter the container as root:
@@ -52,7 +52,7 @@ Once troubleshooting is done, start all over (removing contents of `./docker` to
     - Disable "Keep apps running after closing" 
 
 8. Close the browser after logging and you're done. You can move that profile
-wherever you need (making sure you mount it to `/home/gphotosdl/.config` inside the container)
+wherever you need (making sure you mount it to `/home/gphotosdl/gphotosdl` inside the container)
 
 ### Setting up through Windows
 
