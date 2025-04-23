@@ -11,6 +11,10 @@ exec /usr/bin/brave-browser \
   --no-crashpad \
   --disable-blink-features \
   --disable-blink-features=AutomationControlled \
+  --disable-translate \
+  --disable-suggestions-service \
+  --disable-save-password-bubble \
+  --disable-session-crashed-bubble \
   --enable-unsafe-swiftshader \
   --no-first-run \
   "$@"
