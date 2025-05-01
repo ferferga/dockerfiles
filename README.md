@@ -75,7 +75,7 @@ I run this in a headless Raspberry Pi, so this still assumes a Debian environmen
     ```
 2. In Windows, download [Portable X-Server](https://github.com/P-St/Portable-X-Server/releases) and [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 3. Open VcXsrv (from Portable X-Server). If prompted, allow firewall or even disable it temporarily (only do this if you're behind a router firewall or NAT)
-4. Open Putty, input the IP of the Raspberry Pi with the port you added to `/etc/ssh/sshd_config`. In `Connection > SSH > X11`, tick `Enable X11 Forwarding` with
+4. Open Putty, input the IP of your headless device with the port you added to `/etc/ssh/sshd_config`. In `Connection > SSH > X11`, tick `Enable X11 Forwarding` with
 `127.0.0.1:0.0` location.
 5. Start the connection on Putty, logging in as `gphotosdl` user with password used in step 2.
 
