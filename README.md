@@ -66,7 +66,7 @@ I run this in a headless Raspberry Pi, so this still assumes a Debian environmen
     passwd gphotosdl
     # Change the port to any free port. Ensure X11Forwarding is set to yes
     nano /etc/ssh/sshd_config
-    # Ensure shell of gphotosdl user is /bin/bash, not /bin/false
+    # Ensure shell of gphotosdl user is /bin/bash, not /usr/sbin/nologin
     nano /etc/passwd
     # Necessary for ssh daemon
     mkdir -p /run/sshd

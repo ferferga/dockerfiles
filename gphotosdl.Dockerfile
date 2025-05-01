@@ -25,7 +25,7 @@ COPY scripts/gphotosdl /
 COPY --from=downloader /gphotosdl /usr/bin/gphotosdl
 RUN chmod +x /usr/bin/gphotosdl /chromium /entrypoint.sh && \
     mv /chromium /usr/bin/chromium && \
-    adduser --system --shell /bin/false --home "${USER_DIR}" --disabled-login --disabled-password --gecos "gphotosdl user" --group gphotosdl
+    adduser --system --shell /usr/sbin/nologin --home "${USER_DIR}" --disabled-login --disabled-password --gecos "gphotosdl user" --group gphotosdl
 
 USER gphotosdl
 WORKDIR $USER_DIR
