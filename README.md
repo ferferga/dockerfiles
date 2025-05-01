@@ -41,7 +41,7 @@ install_packages xorg nano
 nano /usr/bin/chromium
 ```
 
-6. Run ``gphotosdl -login`` in the shell of point 2 (the one with user `gphotosdl`).
+6. Run ``gphotosdl -login`` in the shell obtained in point 3 (the one with user `gphotosdl`).
 The browser will popup automatically, if not seeing anything, debug with `gphotosdl -debug`
 or by calling `chromium`.
 Once troubleshooting is done, start all over (removing contents of `./docker` to ensure clear state)
@@ -70,6 +70,8 @@ I run this in a headless Raspberry Pi, so this still assumes a Debian environmen
     nano /etc/passwd
     # Necessary for ssh daemon
     mkdir -p /run/sshd
+    # SSH shell doesn't inherit the variables set in the Dockerfile, we manually shim them
+    ln -s "$XDG_CONFIG_HOME" "$PWD"/.config && ln -s "$XDG_CACHE_HOME" "$PWD"/.cache
     # After all of that, start ssh daemon
     /usr/sbin/sshd -D
     ```
@@ -79,4 +81,5 @@ I run this in a headless Raspberry Pi, so this still assumes a Debian environmen
 `127.0.0.1:0.0` location.
 5. Start the connection on Putty, logging in as `gphotosdl` user with password used in step 2.
 
-From now on, the process is exactly the same as the [Debian's counterpart](#setting-up-through-debian). 
+From now on, the process is exactly the same as the [Debian's counterpart](#setting-up-through-debian), but using the
+shell obtained in SSH when you are required to run commands as gphotosdl user.
