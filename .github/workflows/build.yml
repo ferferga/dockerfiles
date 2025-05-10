@@ -85,7 +85,7 @@ jobs:
           version: latest
 
       - name: Build images 🛠️
-        uses: docker/build-push-action@v6.15.0
+        uses: docker/build-push-action@v6.16.0
         id: image
         with:
           context: .
@@ -163,7 +163,7 @@ jobs:
           password: ${{ github.token }}
 
       - name: Create multiplatform image ${{ inputs.push && 'and push 🛠️⬆️' || '🛠️' }} 
-        uses: docker/build-push-action@v6.15.0
+        uses: docker/build-push-action@v6.16.0
         id: image
         with:
           context: .
