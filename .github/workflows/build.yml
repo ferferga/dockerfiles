@@ -71,7 +71,7 @@ jobs:
 
     steps:
       - name: Checkout ⬇️
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4.4.0
         with:
           show-progress: false
 
@@ -142,7 +142,7 @@ jobs:
           path: /tmp/${{ github.repository_owner }}/${{ matrix.image }}/cache/
   
       - name: Checkout ⬇️
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4.4.0
         with:
           show-progress: false
 
